@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const consumerKey = 'a896AGN5szlaHPmavXz5j943ppflNsTt'; // Replace with your app Consumer Key
-const consumerSecret = 'GROMbRHf0oBK5fVi'; // Replace with your app Consumer Secret
+const consumerKey = 'XJJd2Kw3YUGiJAMACVBFhZKThdweMrCXsPlEUsGrI7LOpUAQ'; // Replace with your app Consumer Key
+const consumerSecret = '74jrFXRHMVv9h2M6cbhPAxLLsLxoVS6vGlzI7Nypf34Z9sKScnbAIfvuv10YHTyz'; // Replace with your app Consumer Secret
 const accessTokenUrl = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
 const headers = {

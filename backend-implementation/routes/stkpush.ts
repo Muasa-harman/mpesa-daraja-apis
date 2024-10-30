@@ -7,7 +7,7 @@ const businessShortCode = '174379';
 const timestamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0]; // Format timestamp
 // ENCRYPT DATA TO GET PASSWORD
 const password = Buffer.from(`${businessShortCode}${passkey}${timestamp}`).toString('base64');
-const phone = '254768168060'; // phone number to receive the stk push
+const phone = '254784130692'; // phone number to receive the stk push
 const money = '1';
 const partyA = phone;
 const partyB = '254708374149';

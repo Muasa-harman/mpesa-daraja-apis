@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 const dbConfig = {
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'donfiles.online',
   database: 'mpesa',
 };
 
@@ -20,7 +20,7 @@ async function importData() {
 
     console.log('Data imported successfully!');
     connection.end();
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error importing data:', error.message);
   }
 }

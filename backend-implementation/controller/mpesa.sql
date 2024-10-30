@@ -4,7 +4,7 @@ import * as fs from 'fs/promises';
 const dbConfig = {
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'donfiles.online',
   database: 'mpesa',
 };
 
