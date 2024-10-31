@@ -21,10 +21,9 @@ const port = process.env.PORT || 3002;
 app.use(cors());
 app.use(express.json());
 
-// MongoDB Connection
 (async () => {
   try {
-    await mongoose.connect("mongodb+srv://harmanmuasa:donfiles.online@cluster0.q3fhm.mongodb.net/mpesa-api");
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log("MongoDB is connected");
   } catch (error) {
     console.error("MongoDB connection failed:", error);
