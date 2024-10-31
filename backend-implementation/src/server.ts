@@ -1,53 +1,53 @@
-const express = require("express");
-require("dotenv").config();
-// const stkRoutes = require("../routes/stk")
-const cors = require("cors");
-const mongoose = require("mongoose");
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import b2bRoutes from './routes/b2bRoutes';
+// import mpesaRoutes from './routes/mpesaRoutes';
+// import b2cRoutes from './routes/b2cRoutes';
+// import b2bExpressCheckoutRoutes from './routes/b2bExpressCheckoutRoutes';
+// import callbackRoutes from './routes/callbackRoutes';
+// import stkPushQueryRoutes from './routes/stkPushQueryRoutes';
+// import c2bTransactionRoutes from './routes/c2bTransactionRoutes';
+// import stkPushRoutes from './routes/stkPushRoutes';
+// import taxRemittanceRoutes from './routes/taxRemittanceRoutes';
+
+dotenv.config();
+
 const app = express();
+const port = process.env.PORT || 3002;
 
-
-const port = process.env.PORT || 3002
-app.use(express.json());
-// app.use(express.urlencoded({extends: true}));
+// Middleware
 app.use(cors());
+app.use(express.json());
 
-
+// MongoDB Connection
 (async () => {
   try {
-    await mongoose.connect('mongodb+srv://harmanmuasa:donfiles.online@cluster0.5dwvyyo.mongodb.net/', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect("mongodb+srv://harmanmuasa:donfiles.online@cluster0.q3fhm.mongodb.net/mpesa-api");
     console.log("MongoDB is connected");
   } catch (error) {
-    console.error("MongoDB connection failed", error);
-    process.exit(1); // Exit the process with a non-zero status code
+    console.error("MongoDB connection failed:", error);
+    process.exit(1); 
   }
 })();
 
+// //  routes 
+// app.use('/api/', mpesaRoutes)
+app.use('/api/', b2bRoutes);
+// app.use('/api/',b2cRoutes);
+// app.use('/api/',b2bExpressCheckoutRoutes)
+// app.use('/api/',callbackRoutes)
+// app.use('/api', stkPushQueryRoutes);
+// app.use('/api', c2bTransactionRoutes);
+// app.use('/api', stkPushRoutes);
+// app.use('/api', taxRemittanceRoutes);
 
 // Start the server
 app.listen(port, () => {
- 
   console.log(`Server is running on http://localhost:${port}`);
 });
 
 
- 
 
-export { };
-// var unirest = require("unirest");
-// var req = unirest("GET", "https://sandbox.safaricom.co.ke/oauth/v1/generate");
- 
-// req.query({
-//  "grant_type": "client_credentials"
-// });
- 
-// req.headers({
-//  "Authorization": "Basic SWZPREdqdkdYM0FjWkFTcTdSa1RWZ2FTSklNY001RGQ6WUp4ZVcxMTZaV0dGNFIzaA=="
-// });
- 
-// req.end((res: { error: string | undefined; body: any; }) => {
-//  if (res.error) throw new Error(res.error);
-//  console.log(res.body);
-// });
+
